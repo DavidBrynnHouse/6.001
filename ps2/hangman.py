@@ -144,7 +144,7 @@ def hangman(secret_word):
     warning = 3
     unique_letters = 0
     print("The word you must guess has " + str(len(secret_word)) +" letters")
-    while(guesses_left > 0):
+    while(guesses_left > -2):
         print("The remaining letters are: " + get_available_letters(letters_guessed))
         if(guesses_left == 1):
             print("You have " + str(guesses_left) + " guess left")
@@ -199,9 +199,10 @@ def hangman(secret_word):
             print("Congratulations you guessed the word!")
             print("Your Score is: " + str(guesses_left * unique_letters))
             break
-        if guesses_left == 0:
+        if guesses_left < 0:
             print("Sorry you lose")
             print("The word was: " + secret_word)
+            return
         
     
 
